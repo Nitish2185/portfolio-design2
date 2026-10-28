@@ -3,6 +3,7 @@ import { Instrument_Sans, Unbounded } from "next/font/google";
 import { site } from "@/content/site";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { TransitionProvider } from "@/components/providers/TransitionProvider";
+import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import { Cursor } from "@/components/ui/Cursor";
 import { Grain } from "@/components/ui/Grain";
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <TransitionProvider>
           <Nav />
           {children}
+          <Footer />
         </TransitionProvider>
       </body>
     </html>
