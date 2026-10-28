@@ -16,6 +16,7 @@ export const site = {
   timeZone: "UTC",
   availability: "Lorem ipsum — available for dolor 2027",
   resume: "/resume.pdf",
+  year: 2026,
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder portfolio built with Next.js, GSAP, Motion, Lenis and Three.js.",
 };

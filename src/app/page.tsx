@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="font-display text-[14vw] leading-[0.85] font-black uppercase">
         {site.firstName}
         <br />
-        <span className="text-outline-acid">{site.lastName}</span>
+        <span className="text-chroma">{site.lastName}</span>
       </h1>
       <p className="max-w-md text-smoke">{site.tagline}</p>
     </main>

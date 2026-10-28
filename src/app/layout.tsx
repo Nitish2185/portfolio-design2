@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { Cursor } from "@/components/ui/Cursor";
 import { Grain } from "@/components/ui/Grain";
+import { Preloader } from "@/components/ui/Preloader";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import "./globals.css";
 
@@ -35,10 +36,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${unbounded.variable} ${instrument.variable}`}
+      className={`${unbounded.variable} ${instrument.variable} is-loading`}
     >
       <body>
+        <noscript>
+          <style>{`.preloader{display:none!important}html.is-loading,html.is-loading body{overflow:auto!important}`}</style>
+        </noscript>
         <SmoothScroll />
+        <Preloader />
         <Cursor />
         <ScrollProgress />
         <Grain />
