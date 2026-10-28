@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Unbounded } from "next/font/google";
 import { site } from "@/content/site";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { TransitionProvider } from "@/components/providers/TransitionProvider";
+import { Nav } from "@/components/layout/Nav";
 import { Cursor } from "@/components/ui/Cursor";
 import { Grain } from "@/components/ui/Grain";
 import { Preloader } from "@/components/ui/Preloader";
@@ -47,7 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Cursor />
         <ScrollProgress />
         <Grain />
-        {children}
+        <TransitionProvider>
+          <Nav />
+          {children}
+        </TransitionProvider>
       </body>
     </html>
   );
