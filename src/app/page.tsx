@@ -1,3 +1,4 @@
+import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 
@@ -6,7 +7,8 @@ export default function Home() {
     <main>
       <Hero />
       <Marquee />
-      <div className="h-[150vh]" />
+      <About />
+      <div className="h-[100vh]" />
     </main>
   );
 }
