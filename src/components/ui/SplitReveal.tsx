@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ElementType } from "react";
-import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { gsap, prefersReducedMotion, SplitText, useGSAP } from "@/lib/gsap";
 
 type Props = {
   children: string;
@@ -21,7 +21,7 @@ export function SplitReveal({ children, as: Tag = "p", className = "", by = "lin
   useGSAP(
     () => {
       const el = ref.current;
-      if (!el) return;
+      if (!el || prefersReducedMotion()) return;
       const split = SplitText.create(el, {
         type: by === "chars" ? "words,chars" : "lines",
         mask: by === "chars" ? "words" : "lines",

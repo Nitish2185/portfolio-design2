@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { marqueeWords } from "@/content/site";
 import { Star } from "@/components/ui/Star";
 
@@ -27,6 +27,7 @@ export function Marquee() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return; // tapes stay still
       const q = gsap.utils.selector(root);
       const loops = q(".mq-track").map((track, i) =>
         gsap.fromTo(

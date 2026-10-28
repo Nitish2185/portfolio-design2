@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, ScrollTrigger, SplitText, useGSAP } from "@/lib/gsap";
+import { gsap, prefersReducedMotion, ScrollTrigger, SplitText, useGSAP } from "@/lib/gsap";
 import { onIntroDone } from "@/lib/intro";
 import { scrollToTarget } from "@/lib/scroll";
 import { site } from "@/content/site";
@@ -36,7 +36,8 @@ export function Hero() {
         .to(split.chars, { yPercent: 0, rotate: 0, duration: 1.6, stagger: 0.045 })
         .to(q(".hero-fade"), { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.1 }, 0.6);
 
-      const unsubscribe = onIntroDone(() => intro.play());
+      // With "reduce motion" on, show the finished state straight away
+      const unsubscribe = onIntroDone(() => (prefersReducedMotion() ? intro.progress(1) : intro.play()));
 
       // While the hero scrolls away, the two words fly apart
       const scrollTl = gsap.timeline({
