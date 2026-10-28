@@ -1,15 +1,10 @@
-import { site } from "@/content/site";
+import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
   return (
-    <main className="container-x flex min-h-svh flex-col justify-center gap-6">
-      <p className="label">Portfolio</p>
-      <h1 className="font-display text-[14vw] leading-[0.85] font-black uppercase">
-        {site.firstName}
-        <br />
-        <span className="text-chroma">{site.lastName}</span>
-      </h1>
-      <p className="max-w-md text-smoke">{site.tagline}</p>
+    <main>
+      <Hero />
+      <div className="h-[150vh]" />
     </main>
   );
 }
