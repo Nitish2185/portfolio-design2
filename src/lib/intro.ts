@@ -19,7 +19,22 @@ export function isIntroDone() {
 
 function subscribe(listener: () => void) {
   listeners.add(listener);
-  return () => listeners.delete(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+
+/** Runs `callback` once the intro is finished (right away if it already is). Returns an unsubscribe function. */
+export function onIntroDone(callback: () => void) {
+  if (done) {
+    callback();
+    return () => {};
+  }
+  const listener = () => {
+    listeners.delete(listener);
+    callback();
+  };
+  return subscribe(listener);
 }
 
 export function useIntroDone() {
