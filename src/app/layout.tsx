@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Unbounded } from "next/font/google";
 import { site } from "@/content/site";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { Cursor } from "@/components/ui/Cursor";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <SmoothScroll />
+        <Cursor />
         {children}
       </body>
     </html>
