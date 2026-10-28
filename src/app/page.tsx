@@ -1,6 +1,7 @@
 import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
+import { Work } from "@/components/sections/Work";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <About />
+      <Work />
       <div className="h-[100vh]" />
     </main>
   );
